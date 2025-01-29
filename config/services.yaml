@@ -1,4 +1,9 @@
 parameters:
+    document_analyzer:
+        base_url: https://api.mistral.ai/v1
+        endpoint: /chat/completions
+        model: pixtral-large-latest
+        api_key: '%env(MISTRAL_API_KEY)%'
 
 services:
     _defaults:

@@ -5,4 +5,23 @@
 {% block body %}
     <h1>Résultat de l'analyse</h1>
 
+    <ul>
+        <li>
+            <strong>Type de document :</strong> {{ response.documentType }}
+        </li>
+        <li>
+            <strong>Nombre de pages :</strong> {{ response.pageCount }}
+        </li>
+        <li>
+            <strong>Langue princiapl :</strong> {{ response.language }}
+        </li>
+        <li>
+            <strong>Date du document :</strong> {{ response.documentDate ?? 'Aucune date' }}
+        </li>
+    </ul>
+
+    <h2>Réponse</h2>
+    <p>
+        {{ response.userResponse }}
+    </p>
 {% endblock %}

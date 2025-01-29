@@ -1,0 +1,16 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Lancer une analyse - {{ parent() }}{% endblock %}
+
+{% block body %}
+    <h1>Lancer une analyse</h1>
+
+    {{ form_start(form) }}
+    <div class="grid">
+        {{ form_row(form.document_url) }}
+        {{ form_row(form.prompt) }}
+    </div>
+
+    <button>Analyser</button>
+    {{ form_end(form) }}
+{% endblock %}

@@ -26,8 +26,8 @@ final readonly class DocumentAnalyzer
         document_type : Catégorie du document (ex. : "facture", "contrat", "rapport").
         language : Langue principale du document (code ISO 639-1, ex. : "fr", "en").
         page_count : Nombre total de pages du document.
-        document_date : Date trouvée dans le document (format ISO 8601, ex. : "2024-01-29").
-        user_response : Réponse au prompt utilisateur en fonction du contenu du document.
+        document_date : Date de création ou de mise à jour du document, uniquement si elle est disponible dans le document (format ISO 8601, ex. : "2024-01-29").
+        user_response : Réponse au prompt utilisateur en fonction du contenu du document, uniquement sous forme de texte.
     string;
 
     public function __construct(
@@ -74,7 +74,8 @@ final readonly class DocumentAnalyzer
         ]);
 
         $responseData = $response->toArray();
+        $chatData = $responseData['choices'][0]['message']['content'];
 
-        return $this->serializer->deserialize($responseData['choices'][0]['message']['content'], DocumentAnalysisResponse::class, 'json');
+        return $this->serializer->deserialize($chatData, DocumentAnalysisResponse::class, 'json');
     }
 }

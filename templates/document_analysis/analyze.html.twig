@@ -6,11 +6,11 @@
     <h1>Lancer une analyse</h1>
 
     {{ form_start(form) }}
-    <div class="grid">
-        {{ form_row(form.documentUrl) }}
-        {{ form_row(form.prompt) }}
-    </div>
+        <div class="grid">
+            {{ form_row(form.documentUrl) }}
+            {{ form_row(form.prompt) }}
+        </div>
 
-    <button>Analyser</button>
+        <button>Analyser</button>
     {{ form_end(form) }}
 {% endblock %}
